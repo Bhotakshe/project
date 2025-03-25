@@ -3,30 +3,23 @@ import { Product } from '../types';
 export const products: Product[] = [
   {
     id: 1,
-    name: "Premium Wireless Headphones",
-    price: 199.99,
-    description: "High-quality wireless headphones with noise cancellation",
-    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80"
+    name: "Seragam SD",
+    price: 150000,
+    description: "Seragam SD berkualitas tinggi dengan bahan nyaman dan tahan lama. Tersedia dalam berbagai ukuran.",
+    image: "/Gambar/Tampilan SDN.jpeg"
   },
   {
     id: 2,
-    name: "Smart Watch Pro",
-    price: 299.99,
-    description: "Advanced smartwatch with health monitoring features",
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80"
+    name: "Seragam SMP",
+    price: 175000,
+    description: "Seragam SMP dengan desain modern dan bahan berkualitas. Cocok untuk aktivitas sekolah sehari-hari.",
+    image: "/Gambar/Tampilan SMP.jpeg"
   },
   {
     id: 3,
-    name: "Ultra HD Camera",
-    price: 599.99,
-    description: "Professional-grade digital camera with 4K recording",
-    image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&q=80"
+    name: "Seragam SMA",
+    price: 200000,
+    description: "Seragam SMA elegan dengan bahan premium. Nyaman dipakai dan tahan lama.",
+    image: "/Gambar/Tampilan SMA.jpeg"
   },
-  {
-    id: 4,
-    name: "Laptop Pro 2024",
-    price: 1299.99,
-    description: "Powerful laptop for professionals and creators",
-    image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500&q=80"
-  }
 ];

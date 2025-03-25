@@ -60,12 +60,14 @@ export default function Navbar({ cartItemCount, onCartClick, onSearch }: NavbarP
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center gap-4">
             <div className="flex items-center">
-              <img 
-                src="/Gambar/logo_2.jpg"
-                alt="TOKO RR Logo" 
-                className="h-12 w-auto"
-              />
-              <span className="ml-2 text-xl font-bold text-gray-800">TOKO RR</span>
+              <a href="/" className="flex items-center hover:opacity-90 transition-opacity">
+                <img 
+                  src="/Gambar/logo_2.jpg"
+                  alt="TOKO RR Logo" 
+                  className="h-12 w-auto"
+                />
+                <span className="ml-2 text-xl font-bold text-gray-800">TOKO RR</span>
+              </a>
             </div>
 
             {/* Search Bar */}

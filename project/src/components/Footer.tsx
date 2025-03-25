@@ -1,6 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Star } from 'lucide-react';
 
 export default function Footer() {
+  const [rating, setRating] = useState(0);
+  const [review, setReview] = useState('');
+  const [reviews, setReviews] = useState([
+    { rating: 5, text: "Seragam berkualitas bagus, jahitan rapi!", author: "Rina S." },
+    { rating: 4, text: "Pengiriman cepat, harga terjangkau", author: "Budi W." }
+  ]);
+
+  const handleSubmitReview = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (rating === 0) return;
+    
+    setReviews([...reviews, {
+      rating,
+      text: review,
+      author: "Pelanggan"
+    }]);
+    setRating(0);
+    setReview('');
+  };
+
   return (
     <footer className="bg-white pt-16 pb-12 border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,10 +100,62 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Reviews Section */}
+        <div className="mt-12 border-t border-gray-100 pt-8">
+          <h3 className="text-blue-600 text-xl font-bold mb-6 text-center">Ulasan Pelanggan</h3>
+          
+          {/* Review Form */}
+          <form onSubmit={handleSubmitReview} className="max-w-lg mx-auto mb-8">
+            <div className="flex justify-center mb-4">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <button
+                  key={star}
+                  type="button"
+                  onClick={() => setRating(star)}
+                  className={`p-1 ${star <= rating ? 'text-yellow-400' : 'text-gray-300'}`}
+                >
+                  <Star className="h-8 w-8 fill-current" />
+                </button>
+              ))}
+            </div>
+            <textarea
+              value={review}
+              onChange={(e) => setReview(e.target.value)}
+              placeholder="Bagikan pengalaman Anda..."
+              className="w-full p-3 border rounded-lg mb-4"
+              rows={3}
+            />
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+            >
+              Kirim Ulasan
+            </button>
+          </form>
+
+          {/* Review List */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {reviews.map((review, index) => (
+              <div key={index} className="bg-gray-50 p-4 rounded-lg">
+                <div className="flex items-center mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`h-5 w-5 ${i < review.rating ? 'text-yellow-400' : 'text-gray-300'} fill-current`}
+                    />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-2">{review.text}</p>
+                <p className="text-sm text-gray-500">- {review.author}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Copyright Section */}
         <div className="mt-12 text-center">
           <p className="text-gray-600">
-            © 2025 TOKO RR. All rights reserved.
+            © 2025 TOKO RR.
           </p>
         </div>
       </div>
@@ -105,4 +178,4 @@ export default function Footer() {
       </a>
     </footer>
   );
-} 
+}
